@@ -41,6 +41,6 @@ lowest = min(x, y, z)
 print(lowest) # -5
 
 
-# get pi value from built-in math module that we imported at the top
+# get pi and e values from the built-in math module that we imported at the top
 print(math.pi) # 3.141592653589793
-print(math.e)
+print(math.e) # 2.718281828459045
