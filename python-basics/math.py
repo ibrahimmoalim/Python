@@ -44,3 +44,13 @@ print(lowest) # -5
 # get pi and e values from the built-in math module that we imported at the top
 print(math.pi) # 3.141592653589793
 print(math.e) # 2.718281828459045
+
+
+# math.sqrt() (square root)
+print(math.sqrt(81)) # 9.0
+print(int(math.sqrt(81))) # 9
+
+
+# math.ceil() and math.floor()
+print(math.ceil(9.2)) # 10 (ceil always rounds up)
+print(math.floor(8.7)) # 8 (floor always rounds down)
