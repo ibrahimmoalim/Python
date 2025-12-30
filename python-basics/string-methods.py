@@ -45,5 +45,3 @@ print(name.replace('i', 'a')) # if name was 'ibrahim' it becomes 'abraham'
 
 # Use 'help(str)' to see more string methods
 # print(help(str))
-
-print(name.replace(' ', ''))
