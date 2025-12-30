@@ -21,6 +21,7 @@ elif 28 > temp > 0 and is_sunny:
 # print or assign one of two values based on a condition
 # X if condition else Y
 
+# example 1
 num = 5
 
 print('positive' if num >= 0 else 'negative')
@@ -28,6 +29,8 @@ print('positive' if num >= 0 else 'negative')
 result = 'Even' if num % 2 == 0 else 'Odd'
 print(result)
 
+
+# example 2
 a = 7
 b = 6
 
@@ -38,6 +41,7 @@ print(max_num) # 7
 print(min_num) # 6
 
 
+# example 3
 age = 15
 status = 'adult' if age > 17 else 'minor'
 print(status)
