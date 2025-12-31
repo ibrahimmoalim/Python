@@ -66,6 +66,7 @@ fruits = ['apple', 'mango', 'banana', 'orange']
 
 
     # Set (indexing doesn't work) (unordered, so values might be in different places when you print)
+    # sets automatically removes duplicate values
 cities = {'bosaso', 'madrid', 'dublin', 'beijing', 'moscow'}
 
 # print(len(cities)) # 5
@@ -78,13 +79,32 @@ cities = {'bosaso', 'madrid', 'dublin', 'beijing', 'moscow'}
 # print(help(cities))
 
 # add a value
-cities.add('jakarta')
-print(cities) # {'jakarta', 'madrid', 'bosaso', 'moscow', 'dublin', 'beijing'}
+# cities.add('jakarta')
+# print(cities) # {'jakarta', 'madrid', 'bosaso', 'moscow', 'dublin', 'beijing'}
 
-cities.remove('dublin')
-print(cities)
+# cities.remove('dublin')
+# print(cities) # {'jakarta', 'moscow', 'madrid', 'beijing', 'bosaso'}
 
 # remove first value, but since Sets are unordered it'll remove an arbitrary value
 # (random but not technically)
-cities.pop()
-print(cities)
+# cities.pop()
+# print(cities) # {'moscow', 'madrid', 'beijing', 'bosaso'}
+
+# clear Set
+# cities.clear()
+# print(cities) # set()
+
+
+
+    # Tuple (faster than List if we need order and we are not planning to change values)
+    # only has count() and index() methods
+countries = ('somalia', 'afghanistan', 'russia', 'spain')
+
+# print(len(countries))
+# print(dir(countries))
+
+print(countries.index('russia')) # 2
+
+print(countries.count('somalia')) # 1
+
+print(*countries, sep=' | ') # somalia | afghanistan | russia | spain
