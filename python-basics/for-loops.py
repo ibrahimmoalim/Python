@@ -62,3 +62,20 @@ print(*range(11)) # 0 1 2 3 4 5 6 7 8 9 10
 
 # seperates values with "-" and puts them in one line
 print(*range(11), sep='-') # 0-1-2-3-4-5-6-7-8-9-10
+
+
+
+
+# nested loops = A loop within another loop
+
+for x in range(3):
+  for y in range(1, 6):
+    print(y, end=(' '))
+  print('|', end=' ')
+
+# used for break, like html <br>
+print()
+print()
+
+for x in range(3):
+  print(*range(1, 6), sep='-')
