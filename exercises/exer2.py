@@ -12,3 +12,16 @@ if len(username) <= 12 and all(char in allowed for char in username):
   print(f'{username} is valid.')
 else:
   print(f'{username} is not valid, Please make sure username 12 characters or fewer, contains only letters, "_" or ".", contains NO spaces or numbers.')
+
+
+
+
+# create a mobile-like num_pad
+
+num_pad = ((1,2,3),
+           (4,5,6),
+           (7,8,9),
+           ('*', 0, '#'))
+
+for row in num_pad:
+  print(*row)
