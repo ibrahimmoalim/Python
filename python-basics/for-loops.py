@@ -34,3 +34,31 @@ for z in range(1, 21):
     break
   else:
     print(z)
+
+
+
+
+# "range(11)" counts 0-10
+# same as "range(0, 11)"
+nums = range(11)
+
+# enumerate gives (index, value) pairs.
+# we can just use i instead of index and x instead of value or anything.
+for i, x in enumerate(nums):
+  # checks if it’s the last element b/c we don't want it to end with "-"
+  if i == len(nums) - 1:
+    # end with \n by default
+    print(x)
+  else:
+  # "end" tells python how to display the list of characters
+  # you could use "end=''" and there will be no space b/w characters (displayed in one line)
+  # you could use "end='-'" and there'll be - b/w every two characters (displayed in one line)
+  # "end='\n" is default and displays each character in one line (\n => new line)
+    print(x, end='-') # 0-1-2-3-4-5-6-7-8-9-10
+
+    # one liners of previous code
+# seperates values with spaces (by default) and puts them in one line
+print(*range(11)) # 0 1 2 3 4 5 6 7 8 9 10
+
+# seperates values with "-" and puts them in one line
+print(*range(11), sep='-') # 0-1-2-3-4-5-6-7-8-9-10
