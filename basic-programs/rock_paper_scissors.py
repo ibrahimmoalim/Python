@@ -7,9 +7,6 @@ score = {
   'losses': 0,
   'ties': 0
 }
-# wins = 0
-# losses = 0
-# ties = 0
 
 while True:
   choice = input('\nChoose between rock, paper, and scissors (q to quit): ').lower()
