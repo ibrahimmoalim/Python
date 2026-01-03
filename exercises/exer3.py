@@ -1,42 +1,45 @@
-# Concession stand program
+# guess a number between 1 to 100
+import random
 
-menu = {
-  'soda': 1.5,
-  'pizza': 3,
-  'popcorn': 2,
-  'chips': 2,
-  'lemonade': 1.2
-}
+random_number = random.randint(1, 100)
 
-cart = {}
-
-total = 0
-
-print('-------- MENU --------')
-for key, value in menu.items():
-  print(f'{key:10}: ${value:.2f}')
-print('----------------------')
+attempts = 0
 
 while True:
-  order = input('What would you like to buy? (q to quit): ').lower()
-  if order == 'q':
-    print('bye!')
-    break
-  elif order in menu.keys():
-    # cart[order] => creates the order (key) if it doesn't exist and assigns a value to it
-    # or updates its value if it does
-    # cart.get(order, 0) + 1 => if order (key) already exists, it returns its value
-    # if not, it returns 0 (that we give as default) + 1, which makes value = 1
-    # now if user rebuys, cart[order] (key) gets updated, cart.get(order, 0) now "ignores" the 0
-    # because we have a value which is 1, and so it adds 1 to that (" + 1"), so value = 2
-    # and so on if user rebuys same item multiple times
-    cart[order] = cart.get(order, 0) + 1
-    total += menu[order]
-  else:
-    print(f'{order} is not in the menu.')
+  choice = input('\npick a whole number between 1 and 100 (q to quit): ')
 
-print('--------- ORDER ---------')
-print(f'You bought:', end=' ')
-print(*[f'{key} x{value}' for key, value in cart.items()], sep=' | ')
-print(f'Your total is ${total:.2f}')
-print('-------------------------')
+  if choice.lower() == 'q':
+    print('Bye!')
+    break
+  
+  try:
+    choice = int(choice)
+  except ValueError:
+    print('Invalid input, enter an integer (1-100) or q to quit ')
+    continue
+  
+  if choice > 100 or choice < 1:
+    print('Number has to be between 1 and 100, try again!')
+    continue
+
+  attempts += 1
+
+  if choice == random_number:
+    print('------------------------------------')
+    print(f'Correct, the number is {random_number}, you got it in {attempts} tries.')
+    print('------------------------------------')
+    while True:
+      play_again = input('Would you like to play again? (Y/N): ').lower()
+      if play_again == 'y':
+        random_number = random.randint(1, 100)
+        attempts = 0
+        break # exit inner loop
+      elif play_again == 'n':
+        print('Bye!')
+        exit() # end program
+      else:
+        print('Please enter Y or N')
+  elif choice > random_number:
+    print('Incorrect, try lower.')
+  else:
+    print('Incorrect, try higher.')
