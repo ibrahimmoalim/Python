@@ -53,7 +53,7 @@ print(find_even((1,3,5,9,7,4,5))) # 4
 
 
 
-# default arguments are used when you want the parameter to have a fixed value
+  # default arguments are used when you want the parameter to have a fixed value
 # and you want to lower number of arguments.
 # "discount" has value "0" if no argument is given, and "tax" has "0.5"
 def net_price(list_price, discount=0, tax=0.5):
@@ -63,3 +63,42 @@ def net_price(list_price, discount=0, tax=0.5):
 print(net_price(500)) # 750
 # now discount will be 0.1 and tax will be 0
 print(net_price(500, 0.1, 0)) # 450
+
+
+  # arbitrary arguments
+  
+# *args (arguments) = allows you to pass multiple non-key arguments
+# * (unpacking operator)
+# 1 "*" is used to pack argumnets into a tuple
+
+# after the "*" you can use any name like nums, 'args' is like best practice 
+# def add(*args):
+def add(*nums):
+  # print(type(nums)) # tuple
+  total = 0
+  for num in nums:
+    total += num
+  return total
+
+print(add(1,2,3,4,5)) # 15
+
+
+# **kwargs (keyword-arguments) = allows you to pass multiple keyword-arguments
+# 2 "*" is used to pack argumnets into a dictionary
+
+def address(**kwargs):
+  # print(type(kwargs)) # dict
+  print(f'You live in {kwargs['country']}, {kwargs['city']}, {kwargs['street']}')
+
+# these are called keyword-arguments, they don't have to be in order
+# because we are giving them values directly
+address(city='Berlin', country='Germany', street='Unknown') # You live in Germany, Berlin, Unknown
+
+
+# you can use *args and **kwargs in the same function
+# *args has to be the first parameter doe, or you get syntax error
+def shipping_lapel(*args, **kwargs):
+  print(f'hey {kwargs['name']},', *args, f'but you are {kwargs['state']}')
+
+shipping_lapel('you', 'are', 'ok', name='Yahya', state='Bored') # hey Yahya, you are ok but you are Bored
+
