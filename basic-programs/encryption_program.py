@@ -1,24 +1,47 @@
 import random
 
-# keys = [1,2,3,4,5,6,7,8,9,0,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','-','/','!','?','<','>','~','@','#','$','%','^','&','*','_']
 
-keys = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^~&*-_<>/?'
+chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^~&*-_<>/? '
+keys = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^~&*-_<>/? '
 
-# make keys a list
+# put every character in keys inside a list
 # every character will be a seperate string with it's own index
 keys = list(keys)
+random.shuffle(keys)
 
-value = input('Enter something to be encrypted: ')
+try:
 
-print(f'Original value: {value}')
+  # Encrypt
+  value = input('Enter a value to be encrypted: ')
 
-encrypted_value = []
+  encrypted_text = ''
 
-for char in value:
-  encrypted_value.append(random.choice(keys))
+  for char in value:
+    index = chars.index(char)
+    encrypted_text += keys[index]
 
-print('Encrypted value:', end=' ')
-print(*encrypted_value, sep='')
+  print('---------------------')
+  print(f'Original value: {value}')
+  print('Encrypted value:', end=' ')
+  print(*encrypted_text, sep='')
+  print('---------------------')
 
-if len(encrypted_value) == len(value):
-  print('Encryption Succesful!')
+  if len(encrypted_text) == len(value):
+    print('Encryption Succesful!\n')
+
+  # Decrypt
+  encrypted = input('Enter an encrypted value to be decrypted: ')
+
+  decrypted_text = ''
+
+  for item in encrypted:
+    index = keys.index(item)
+    decrypted_text += chars[index]
+
+  print('---------------------')
+  print(f'Encrypted value: {encrypted}')
+  print(f'Decrypted value: {decrypted_text}')
+  print('---------------------')
+
+except KeyboardInterrupt:
+  print('\nCtrl+C Detected. Exiting Program Gracefully!')
