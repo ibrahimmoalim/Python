@@ -73,14 +73,14 @@ def play_game(label, words):
           
           else:
             tries -= 1
-          if tries == 0:
-            break
-          else:
-            print('Incorrect. Try again!')
-            if tries == 1:
-              print(f'You have {tries} try left')
+            if tries == 0:
+              break
             else:
-              print(f'You have {tries} tries left')
+              print('Incorrect. Try again!')
+              if tries == 1:
+                print(f'You have {tries} try left')
+              else:
+                print(f'You have {tries} tries left')
 
     if not won:
       print('*****************')
