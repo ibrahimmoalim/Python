@@ -3,9 +3,9 @@ import random
 
 def main():
 
-  countries = ('Kyrgyzstan', 'Eswatini', 'Argentina', 'Russia', 'Slovenia', 'Malawi', 'Taiwan', 'Kuwait', 'Senegal', 'Brazil', 'Somalia', 'Indonesia', 'Afghanistan', 'Vietnam', 'Ireland')
-  animals = ('Goat', 'Sloth', 'Hedgehog', 'Jaguar', 'Raccoon', 'Otter', 'Eagle', 'Dolphin', 'Camel', 'Elephant', 'Donkey', 'Lion', 'Cat', 'Dog', 'Pigeon', 'Penguin', 'Falcon', 'Horse')
-  fruits = ('Banana', 'Coconut', 'Watermelon', 'Guava', 'Apple', 'Grape', 'Strawberry', 'Blueberry', 'Cherry', 'Pineapple', 'Mango', 'Kiwi', 'Date', 'Raisin')
+  countries = ('Kyrgyzstan', 'Eswatini', 'Bosnia', 'Albania', 'Argentina', 'China', 'Russia', 'Slovenia', 'Malawi', 'Taiwan', 'Kuwait', 'Jamaica', 'Senegal', 'Brazil', 'Somalia', 'Spain', 'Indonesia', 'Afghanistan', 'Vietnam', 'Ireland')
+  animals = ('Goat', 'Sloth', 'Hedgehog', 'Jaguar', 'Raccoon', 'Otter', 'Eagle', 'Dolphin', 'Camel', 'Elephant', 'Donkey', 'Lion', 'Cat', 'Dog', 'Pigeon', 'Fox', 'Wolf', 'Duck', 'Bear', 'Penguin', 'Falcon', 'Horse')
+  fruits = ('Banana', 'Coconut', 'Watermelon', 'Guava', 'Apple', 'Grape', 'Strawberry', 'Blueberry', 'Cherry', 'Pineapple', 'Mango', 'Kiwi', 'Date', 'Raisin', 'Orange')
   
   try:
     while True:
