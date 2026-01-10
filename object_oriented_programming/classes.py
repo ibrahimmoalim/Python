@@ -8,8 +8,8 @@
   # Class
 # create class (named Car in this case), class names are capitalized for best practice
 class Car:
-  # constructor method (a dunder method; dunder = __)
-  # this constructor initializes the object with attributes given as parameters
+  # __init__ is a built-in special method in Python that is automatically called when an object is created, and it’s used to initialize the object’s data. It's a dunder method; dunder = __
+  # It initializes the object with attributes given as parameters
   # 'self' is a conventionally named parameter (you could use 'this' or any name, 'self' is more pythonic)
   # that refers to the specific object being created or used (e.g., car1)
   def __init__(self, brand, model, year, color, for_sale):
