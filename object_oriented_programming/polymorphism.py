@@ -2,6 +2,7 @@
 # 1. Inheritance = An object could be treated of the same type as a parent class
 # 2. "Duck typing" = Object must have necessary attributes/methods
 
+ # This practice file uses Duck typing
 
 class Circle:
   def __init__(self, radius):
@@ -27,7 +28,8 @@ class Triangle:
   def area(self):
     return self.base * self.height * 0.5
 
-
+# Pizza has the minimum necessary attributes to be considered a shape (radius)
+# so it can use the area method of Circle class
 class Pizza(Circle):
   def __init__(self, radius):
     super().__init__(radius)
