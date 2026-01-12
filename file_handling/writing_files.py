@@ -1,3 +1,4 @@
+import json
 # Python file writing (.txt, .json, .csv)
 
 
@@ -54,7 +55,6 @@ with open(file_path, 'a') as file:
 
 
   # writing json file
-import json
 
 # content of file
 worker = {
