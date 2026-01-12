@@ -44,3 +44,35 @@ try:
     print(f'{text_data} was appended to {file_path}.')
 except FileExistsError:
   print(f'{file_path} already exists.')
+
+
+employees = ['axmad', 'cali', 'adnan', 'ibrahim']
+
+with open(file_path, 'a') as file:
+  for employee in employees:
+    file.write('\n' + employee)
+
+
+  # writing json file
+import json
+
+# content of file
+worker = {
+  'name': 'Ali',
+  'age': 25,
+  'job': 'cook' 
+}
+
+# where to save
+json_file = 'tests/json_file.json'
+
+try:
+  with open(json_file, 'w') as file:
+    # 'dump()' converts json into a string that we can write into a file
+    # it takes two arguments, content and path
+    # we can add a keyword argument 'indent='
+    # to make it look like a proper json (2 = 2 spaces)
+    json.dump(worker, file, indent=2)
+    print(f"{json_file} was created, with content {worker}")
+except FileExistsError:
+  print(f"{json_file} already exists.")
