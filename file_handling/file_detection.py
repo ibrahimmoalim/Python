@@ -10,7 +10,7 @@ import os
 # Relative path example
 # Relative paths are resolved from the *current working directory*
 # (check the terminal output), not from the location of this Python file
-file_path = 'test.txt'
+file_path = 'tests/test.txt'
 
 # Check whether the file or directory exists at the given path
 if os.path.exists(file_path):
