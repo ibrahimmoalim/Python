@@ -1,8 +1,10 @@
-import json
 # Python file writing (.txt, .json, .csv)
 
+import json
+import csv
 
-  # write plain text file
+
+  # writing plain text files
 
 # content of file
 text_data = 'hello!'
@@ -54,7 +56,7 @@ with open(file_path, 'a') as file:
     file.write('\n' + employee)
 
 
-  # writing json file
+  # writing json files
 
 # content of file
 worker = {
@@ -76,3 +78,27 @@ try:
     print(f"{json_file} was created, with content {worker}")
 except FileExistsError:
   print(f"{json_file} already exists.")
+
+
+  # writing csv files (comma separated values, common with spreadsheet of data)
+
+# content of csv file
+workers = [['Name', 'Age', 'Job'],
+           ['Ali', 30, 'Cook'],
+           ['Yahya', 26, 'Unemployed'],
+           ['Siciid', 27, 'Scientist']]
+
+# path
+csv_file = 'tests/csv_file.csv'
+
+with open(csv_file, 'w', newline='\n') as file:
+
+  # creates a csv writer object using (file) as destination and saves it into 'writer' variable
+  # writer is a tool that writes CSV-formatted data into 'file'
+  writer = csv.writer(file)
+  # Loops through each list inside workers
+  for row in workers:
+    # Writes one row at a time to the CSV file
+    writer.writerow(row)
+    
+  print(f"{csv_file} was created with content: {workers}")
