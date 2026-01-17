@@ -1,3 +1,5 @@
+# PyQt5 Styles
+
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QGridLayout
 
