@@ -112,12 +112,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
-
-
-# http://www.7timer.info/bin/api.pl?lon=113.17&lat=23.09&product=astro&output=xml
