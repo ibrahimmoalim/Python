@@ -11,7 +11,7 @@ class Stopwatch(QWidget):
         super().__init__()
         self.setWindowTitle('Stopwatch')
         self.setGeometry(100, 750, 150, 150)
-        self.setWindowIcon(QIcon("/home/ibrahim/python/basic-programs/programs/stopwatch/stopwatch.jpg"))
+        self.setWindowIcon(QIcon("/home/ibrahim/python/basic-programs/programs/stopwatch/stopwatch.png"))
         self.label = QLabel("00:00:00.00",self)
         self.start = QPushButton("Start", self)
         self.stop = QPushButton("Stop", self)
