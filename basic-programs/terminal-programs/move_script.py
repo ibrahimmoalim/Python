@@ -3,6 +3,20 @@
 import os
 import shutil
 
+BASE = "/home/ibrahim"
+FOLDERS = [
+    f"{BASE}",
+    f"{BASE}/Downloads"
+]
+
+DESTINATIONS = {
+    "images": f"{BASE}/pictures",
+    "icons": f"{BASE}/pictures/icons",
+    "videos": f"{BASE}/videos",
+    "audio": f"{BASE}/audio",
+    "documents": f"{BASE}/documents"
+}
+
 # images
 img = ('.jpg', '.jpeg', '.png', '.gif', '.webp', '.avif', '.svg')
 # videos
@@ -13,45 +27,33 @@ audio = ('.mp3', '.aac', '.aif', '.m4a', '.opus', '.wav', '.wma', '.ogg', '.au')
 doc = ('.pdf', '.ppt', '.pptx', '.doc', '.docx', '.md', '.odt', '.odp',
        '.xls', '.xlsx', '.csv', '.ods', '.json')
 
-def is_img(file):
-    if os.path.splitext(file)[1] == '.svg':
-        return 'svg'
-    
-    return os.path.splitext(file)[1] in img
+def move_file(path, destination):
+    try:
+        shutil.move(path, destination)
+        print(f"Moved {os.path.basename(path)} → {destination}")
+    except shutil.Error as e:
+        print(e)
 
-def is_vid(file):
-    return os.path.splitext(file)[1] in vid
 
-def is_audio(file):
-    return os.path.splitext(file)[1] in audio
+for folder in FOLDERS:
+    if not os.path.exists(folder):
+        continue
 
-def is_doc(file):
-    return os.path.splitext(file)[1] in doc
+    for file in os.listdir(folder):
+        path = os.path.join(folder, file)
 
-downloads = os.listdir('/home/ibrahim/downloads/')
-home = os.listdir('/home/ibrahim/')
+        if not os.path.isfile(path):
+            continue
 
-for file in home:
-    path = f'/home/ibrahim/{file}'
+        ext = os.path.splitext(file)[1].lower()
 
-    if os.path.isfile(path):
-
-        if is_img(file) == 'svg':
-            shutil.move(path, '/home/ibrahim/pictures/icons/')
-            print(f"{file} has been move to pictures/icons/")
-        
-        elif is_img(file):
-            shutil.move(path, '/home/ibrahim/pictures/')
-            print(f"{file} has been move to pictures/")
-        
-        elif is_vid(file):
-            shutil.move(path, '/home/ibrahim/videos/')
-            print(f"{file} has been move to videos/")
-        
-        elif is_audio(file):
-            shutil.move(path, '/home/ibrahim/audio/')
-            print(f"{file} has been move to audio/")
-        
-        elif is_doc(file):
-            shutil.move(path, '/home/ibrahim/documents/')
-            print(f"{file} has been move to documents/")
+        if ext == ".svg":
+            move_file(path, DESTINATIONS["icons"])
+        elif ext in img:
+            move_file(path, DESTINATIONS["images"])
+        elif ext in vid:
+            move_file(path, DESTINATIONS["videos"])
+        elif ext in audio:
+            move_file(path, DESTINATIONS["audio"])
+        elif ext in doc:
+            move_file(path, DESTINATIONS["documents"])
