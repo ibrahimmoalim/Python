@@ -1,27 +1,39 @@
-# Weather App
+"""
+Weather app
+"""
 
 import sys
+from pathlib import Path
 import requests
+
+# pylint: disable=E0611
 from PyQt5.QtWidgets import (QApplication, QWidget, QLabel,
                              QVBoxLayout, QHBoxLayout, QPushButton, QLineEdit)
-from PyQt5.QtGui import QIcon, QFont, QPixmap
+from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtCore import Qt
+
+BASE_DIR = Path(__file__).resolve().parent
 
 
 class Weather(QWidget):
+    """
+    Setup the app UI
+    """
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Weather App')
         self.setGeometry(700, 300, 700, 500)
-        self.setWindowIcon(QIcon('/home/ibrahim/python/basic-programs/programs/weather-app/sun.png'))
+        self.setWindowIcon(QIcon(f'{BASE_DIR}/sun.png'))
         self.input = QLineEdit(self)
         self.but = QPushButton("Get Weather", self)
         self.weather_data = QLabel("", self)
         self.weather_icon = QLabel("", self)
-        self.initUI()
+        self.init_ui()
 
-    def initUI(self):
-
+    def init_ui(self):
+        """
+        Initialize UI
+        """
         vbox = QVBoxLayout()
         self.setLayout(vbox)
 
@@ -67,14 +79,20 @@ class Weather(QWidget):
         self.weather_data.setCursor(Qt.IBeamCursor)
 
         self.but.clicked.connect(self.get_weather)
-    
+
     def get_weather(self):
+        """
+        Function that does the logic for getting weather report from an API
+        """
         try:
             city = self.input.text().strip().capitalize()
 
-            base_url = f"https://api.weatherapi.com/v1/current.json?key=9d49110062374386a16172306261801&q={city}&aqi=no"
+            base_url = (
+                f"https://api.weatherapi.com/v1/current.json?"
+                f"key=9d49110062374386a16172306261801&q={city}&aqi=no"
+            )
 
-            response = requests.get(base_url)
+            response = requests.get(base_url, timeout=10)
             response = response.json()
 
             self.weather_data.setText(
@@ -89,7 +107,7 @@ class Weather(QWidget):
 
             # get weather icon
             icon_url = "https:" + response["current"]["condition"]["icon"]
-            icon_data = requests.get(icon_url).content
+            icon_data = requests.get(icon_url, timeout=10).content
 
             pixmap = QPixmap()
             pixmap.loadFromData(icon_data)
@@ -105,6 +123,9 @@ class Weather(QWidget):
 
 
 def main():
+    """
+    Function for starting that app
+    """
     app = QApplication(sys.argv)
     weather_app = Weather()
     weather_app.show()
